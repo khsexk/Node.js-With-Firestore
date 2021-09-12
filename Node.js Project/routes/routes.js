@@ -5,7 +5,7 @@ const {
     getTable,
     updateTable,
     deleteTable
-    } = require('../controllers/studentsController');
+    } = require('../controllers/dataController');
 
 const router = express.Router();
 

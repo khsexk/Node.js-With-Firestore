@@ -14,7 +14,7 @@ const db = admin.firestore();
 const addTable = async (req, res, next) => {
     try {
         const data = req.body;
-        await db.collection('Table_Use_Information').doc('Table_3').set(data);
+        await db.collection('Table_Use_Information').doc().set(data);
         res.send('Record saved successfuly');
         console.log('Record saved successfuly');
     } catch(error) {
