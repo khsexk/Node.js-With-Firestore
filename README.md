@@ -1,5 +1,6 @@
 ### Node.js와 Firestore 연동
 
+
 <blockquote data-ke-style="style2"><br /><b>1. Firebase 모듈 설치</b></blockquote>
 <p data-ke-size="size16">&nbsp;시작에 앞서 우리는 Firebase 모듈을 설치해야한다. 이전에 우리는 <a href="https://alkorithm.tistory.com/entry/Nodejs-Theory-%EB%85%B8%EB%93%9Cnode-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0-windows-10%EB%B2%84%EC%A0%84-ALKORITHM?category=495391" target="_blank" rel="noopener">Node를 설치하였고, 명령 프롬프트(cmd) 창에서 node를 자유롭게 이용할 수 있게 되었다</a>.(설치하지 않았다면 링크를 눌러서 설치해보자...!) 따라서 우리는 아래의 명령어를 cmd 창에서 입력해주면 된다.</p>
 <pre id="code_1630822360995" class="shell" data-ke-language="shell" data-ke-type="codeblock"><code>npm install firebase-admin --save</code></pre>
