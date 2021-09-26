@@ -1,6 +1,5 @@
 'use strict';
 
-
 const Table = require('../models/Table');
 const admin = require('firebase-admin');
 var serviceAccount = require("../path/serviceAccountKey.json");
