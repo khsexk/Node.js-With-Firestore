@@ -1,6 +1,11 @@
 # Node.js와 Firestore 연동
+## ***Use Skill***
+<p data-ke-size="size16"></p>
 
+![Visual Studio Code Badge](https://img.shields.io/badge/-Visual%20Studio%20Code-FFFFFF?style=flat&logo=Visual%20Studio%20Code&logoColor=007ACC) ![Node.js Badge](https://img.shields.io/badge/-Node.js-660099?style=flat&logo=Node.js) ![Firebase Badge](https://img.shields.io/badge/-Firebase-FF7139?style=flat&logo=Firebase) 
+## 
 
+&nbsp;
 <blockquote data-ke-style="style2"><br /><b>1. Firebase 모듈 설치</b></blockquote>
 <p data-ke-size="size16">&nbsp;시작에 앞서 우리는 Firebase 모듈을 설치해야한다. 이전에 우리는 <a href="https://alkorithm.tistory.com/entry/Nodejs-Theory-%EB%85%B8%EB%93%9Cnode-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0-windows-10%EB%B2%84%EC%A0%84-ALKORITHM?category=495391" target="_blank" rel="noopener">Node를 설치하였고, 명령 프롬프트(cmd) 창에서 node를 자유롭게 이용할 수 있게 되었다</a>.(설치하지 않았다면 링크를 눌러서 설치해보자...!) 따라서 우리는 아래의 명령어를 cmd 창에서 입력해주면 된다.</p>
 <pre id="code_1630822360995" class="shell" data-ke-language="shell" data-ke-type="codeblock"><code>npm install firebase-admin --save</code></pre>
@@ -11,6 +16,9 @@ npm install dotenv
 npm install express
 npm install body-parser</code></pre>
 <p data-ke-size="size16">&nbsp;위의 모듈도 추가적으로 설치해주자.</p>
+
+## 
+
 <blockquote data-ke-style="style2"><br /><b>2. Firebase 프로젝트에 웹 추가 및 추가 작업</b></blockquote>
 <p align="center"><img src="https://user-images.githubusercontent.com/56003992/134799867-a08012f9-2e9f-4ae9-9775-f668914488f3.png"></p> 
 <p data-ke-size="size16">&nbsp;Firebase에 접속하면 이렇게 프로젝트를 선택할 수 있다. (처음 사용하는 사람을 없을 거라 생각하고 작성하겠다.) 여기서 원하는 프로젝트를 선택하면 된다.&nbsp;</p>
@@ -29,6 +37,9 @@ npm install body-parser</code></pre>
 <p data-ke-size="size16">&nbsp;</p>
 <p data-ke-size="size16"><span style="color: #000000;">&nbsp;그럼 지금부터 Node 코드를 살펴보자.</span></p>
 <p data-ke-size="size16">&nbsp;</p>
+
+## 
+
 <blockquote data-ke-style="style2"><br /><b>3. Node Project 소개</b></blockquote>
 <p align="center"><img src="https://user-images.githubusercontent.com/56003992/134800163-e008e51d-debd-47be-aa17-c2a05d7e2050.png" ></p> 
 <p data-ke-size="size16">&nbsp;위는 디렉토리 안에 있는 하위 디렉토리 및 파일들이다. 간단하게 설명한 후 하나씩 코드를 살펴보자.</p>
@@ -56,6 +67,8 @@ npm install body-parser</code></pre>
 module.exports = Table;</code></pre>
 <p data-ke-size="size16">&nbsp;딱히 설명할 부분 없는 코드다. Firestore DB로 관리할 데이터 양식이라고 생각하면 된다. 원하는 데이터 양식으로 수정해도 되고, 마지막에 module.exports를 통해 모듈로 만들어준다.</p>
 <p data-ke-size="size16">&nbsp;</p>
+
+## 
 <blockquote data-ke-style="style2"><br /><b>5.</b> <b>.env</b>&nbsp;</blockquote>
 <pre id="code_1632642113912" class="shell" data-ke-language="shell" data-ke-type="codeblock"><code>NODE_ENV=production
 #express server config
@@ -65,6 +78,8 @@ HOST=localhost
 HOST_URL=http://localhost:8080</code></pre>
 <p data-ke-size="size16">&nbsp; 이 코드 또한 딱히 설명할 부분은 없다. PORT 번호를 저장해 놓았고, 만약 Firebase 연동이 필요하다면 API KEY를 기재해 놓아도 된다. (이번 실습에서는 API KEY를 사용하지 않으므로 제외해 두었다.)</p>
 <p data-ke-size="size16">&nbsp;</p>
+
+## 
 <blockquote data-ke-style="style2"><br /><b>6. config.js</b></blockquote>
 <pre id="code_1632642293277" class="javascript" data-ke-language="javascript" data-ke-type="codeblock"><code>'use strict';
 const dotenv = require('dotenv');
@@ -88,6 +103,8 @@ module.exports = {
 }</code></pre>
 <p data-ke-size="size16">&nbsp;dotenv 모듈을 사용해서 .env를 활용해주었다. PORT, HOST, HOST_URL을 .env 파일에서 가져와 모듈화 해주었다.</p>
 <p data-ke-size="size16">&nbsp;</p>
+
+## 
 <blockquote data-ke-style="style2"><br /><b>7. index.js</b></blockquote>
 <pre id="code_1632642382725" class="javascript" data-ke-language="javascript" data-ke-type="codeblock"><code>'use strict';
 
@@ -108,6 +125,8 @@ app.use('/api', routes.routes);
 app.listen(config.port, () =&gt; console.log('App is listening on url http://localhost:' + config.port));</code></pre>
 <p data-ke-size="size16">&nbsp; app 변수에 express() 모듈을 넣어주고, use( ) 메서드를 통해 install했던 모듈들을 받아준다. 이후 listen을 통해 서버를 열어준다.</p>
 <p data-ke-size="size16">&nbsp;</p>
+
+## 
 <blockquote data-ke-style="style2"><br />8. routes.js</blockquote>
 <pre id="code_1632642580489" class="javascript" data-ke-language="javascript" data-ke-type="codeblock"><code>const express = require('express');
 const {
@@ -131,6 +150,8 @@ module.exports = {
 }</code></pre>
 <p data-ke-size="size16">&nbsp;읽어보기만 해도 알 것 같은 코드다. dataController.js 파일에서 모듈을 받아와 POST, GET, PUT, DELETE 등의 작업을 router에 정의하여 모듈화 하였다. 그럼 이제 메인인 dataController.js 파일을 살펴보자.</p>
 <p data-ke-size="size16">&nbsp;</p>
+
+## 
 <blockquote data-ke-style="style2"><br /><b>9. dataControllers.js</b></blockquote>
 <pre id="code_1632642696646" class="javascript" data-ke-language="javascript" data-ke-type="codeblock"><code>'use strict';
 
@@ -261,6 +282,8 @@ const db = admin.firestore();</code></pre>
 <p data-ke-size="size16">&nbsp;</p>
 <p data-ke-size="size16">&nbsp;이제 실행이 잘되는지 테스트해보자.</p>
 <p data-ke-size="size16">&nbsp;</p>
+
+## 
 <blockquote data-ke-style="style2"><br /><b>10. 실행</b></blockquote>
 <p align="center"><img src="https://user-images.githubusercontent.com/56003992/134800307-68a5896e-41c4-4638-b629-05c7e65e4cc4.png" ></p> 
 <p style="text-align: center;" data-ke-size="size16">먼저, npm start를 통해 웹 서버를 열어준다.</p>
